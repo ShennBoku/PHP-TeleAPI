@@ -23,7 +23,7 @@ class TeleAPI {
         $this->token = $token;
     }
     
-    private function stream($command,$value)
+    private function get($command,$value)
     {
         $context = stream_context_create([
             'http' => [
@@ -82,132 +82,88 @@ class TeleAPI {
     
     public function sendMessage($cid,$msg)
     {
-        if(is_callable('curl_init')) {
-            $out = $this->curl('sendMessage',['chat_id' => $cid,'text' => $msg]);
-            if(!$out) $out = $this->stream('sendMessage',['chat_id' => $cid,'text' => $msg]);
-        } else {
-            $out = $this->stream('sendMessage',['chat_id' => $cid,'text' => $msg]);
-        }
+        $out = $this->curl('sendMessage',['chat_id' => $cid,'text' => $msg]);
+        if(!$out) $out = $this->get('sendMessage',['chat_id' => $cid,'text' => $msg]);
         $json = json_decode($out, true);
         return ['result' => $json['ok'],'data' => $json['description'].$json['result']['message_id']];
     }
     
     public function sendPhoto($cid,$pic,$msg)
     {
-        if(is_callable('curl_init')) {
-            $out = $this->curl('sendPhoto',['chat_id' => $cid,'photo' => $pic,'caption' => $msg]);
-            if(!$out) $out = $this->stream('sendPhoto',['chat_id' => $cid,'photo' => $pic,'caption' => $msg]);  
-        } else {
-            $out = $this->stream('sendPhoto',['chat_id' => $cid,'photo' => $pic,'caption' => $msg]);
-        }
+        $out = $this->curl('sendPhoto',['chat_id' => $cid,'photo' => $pic,'caption' => $msg]);
+        if(!$out) $out = $this->get('sendPhoto',['chat_id' => $cid,'photo' => $pic,'caption' => $msg]);  
         $json = json_decode($out, true);
         return ['result' => $json['ok'],'data' => $json['description'].$json['result']['message_id']];
     }
     
     public function sendAudio($cid,$audio,$msg)
     {
-        if(is_callable('curl_init')) {
-            $out = $this->curl('sendAudio',['chat_id' => $cid,'audio' => $audio,'caption' => $msg]);
-            if(!$out) $out = $this->stream('sendAudio',['chat_id' => $cid,'audio' => $audio,'caption' => $msg]);  
-        } else {
-            $out = $this->stream('sendAudio',['chat_id' => $cid,'audio' => $audio,'caption' => $msg]);
-        }
+        $out = $this->curl('sendAudio',['chat_id' => $cid,'audio' => $audio,'caption' => $msg]);
+        if(!$out) $out = $this->get('sendAudio',['chat_id' => $cid,'audio' => $audio,'caption' => $msg]);  
         $json = json_decode($out, true);
         return ['result' => $json['ok'],'data' => $json['description'].$json['result']['message_id']];
     }
     
     public function sendDocument($cid,$doc,$thumb,$msg)
     {
-        if(is_callable('curl_init')) {
-            $out = $this->curl('sendDocument',['chat_id' => $cid,'document' => $doc,'thumb' => $thumb,'caption' => $msg]);
-            if(!$out) $out = $this->stream('sendDocument',['chat_id' => $cid,'document' => $doc,'thumb' => $thumb,'caption' => $msg]);
-        } else {
-            $out = $this->stream('sendDocument',['chat_id' => $cid,'document' => $doc,'thumb' => $thumb,'caption' => $msg]);
-        }
+        $out = $this->curl('sendDocument',['chat_id' => $cid,'document' => $doc,'thumb' => $thumb,'caption' => $msg]);
+        if(!$out) $out = $this->get('sendDocument',['chat_id' => $cid,'document' => $doc,'thumb' => $thumb,'caption' => $msg]);
         $json = json_decode($out, true);
         return ['result' => $json['ok'],'data' => $json['description'].$json['result']['message_id']];
     }
     
     public function sendVideo($cid,$vid,$thumb,$msg)
     {
-        if(is_callable('curl_init')) {
-            $out = $this->curl('sendVideo',['chat_id' => $cid,'video' => $vid,'thumb' => $thumb,'caption' => $msg]);
-            if(!$out) $out = $this->stream('sendVideo',['chat_id' => $cid,'video' => $vid,'thumb' => $thumb,'caption' => $msg]);
-        } else {
-            $out = $this->stream('sendVideo',['chat_id' => $cid,'video' => $vid,'thumb' => $thumb,'caption' => $msg]);
-        }
+        $out = $this->curl('sendVideo',['chat_id' => $cid,'video' => $vid,'thumb' => $thumb,'caption' => $msg]);
+        if(!$out) $out = $this->get('sendVideo',['chat_id' => $cid,'video' => $vid,'thumb' => $thumb,'caption' => $msg]);
         $json = json_decode($out, true);
         return ['result' => $json['ok'],'data' => $json['description'].$json['result']['message_id']];
     }
     
     public function sendAnimation($cid,$animation,$thumb,$msg)
     {
-        if(is_callable('curl_init')) {
-            $out = $this->curl('sendAnimation',['chat_id' => $cid,'animation' => $animation,'thumb' => $thumb,'caption' => $msg]);
-            if(!$out) $out = $this->stream('sendAnimation',['chat_id' => $cid,'animation' => $animation,'thumb' => $thumb,'caption' => $msg]);
-        } else {
-            $out = $this->stream('sendAnimation',['chat_id' => $cid,'animation' => $animation,'thumb' => $thumb,'caption' => $msg]);
-        }
+        $out = $this->curl('sendAnimation',['chat_id' => $cid,'animation' => $animation,'thumb' => $thumb,'caption' => $msg]);
+        if(!$out) $out = $this->get('sendAnimation',['chat_id' => $cid,'animation' => $animation,'thumb' => $thumb,'caption' => $msg]);
         $json = json_decode($out, true);
         return ['result' => $json['ok'],'data' => $json['description'].$json['result']['message_id']];
     }
     
     public function sendVoice($cid,$audio,$msg)
     {
-        if(is_callable('curl_init')) {
-            $out = $this->curl('sendVoice',['chat_id' => $cid,'voice' => $audio,'caption' => $msg]);
-            if(!$out) $out = $this->stream('sendVoice',['chat_id' => $cid,'voice' => $audio,'caption' => $msg]);
-        } else {
-            $out = $this->stream('sendVoice',['chat_id' => $cid,'voice' => $audio,'caption' => $msg]);
-        }
+        $out = $this->curl('sendVoice',['chat_id' => $cid,'voice' => $audio,'caption' => $msg]);
+        if(!$out) $out = $this->get('sendVoice',['chat_id' => $cid,'voice' => $audio,'caption' => $msg]);
         $json = json_decode($out, true);
         return ['result' => $json['ok'],'data' => $json['description'].$json['result']['message_id']];
     }
     
     public function sendVideoNote($cid,$vidnote,$thumb)
     {
-        if(is_callable('curl_init')) {
-            $out = $this->curl('sendVideoNote',['chat_id' => $cid,'video_note' => $vidnote,'thumb' => $thumb]);
-            if(!$out) $out = $this->stream('sendVideoNote',['chat_id' => $cid,'video_note' => $vidnote,'thumb' => $thumb]);
-        } else {
-            $out = $this->stream('sendVideoNote',['chat_id' => $cid,'video_note' => $vidnote,'thumb' => $thumb]);
-        }
+        $out = $this->curl('sendVideoNote',['chat_id' => $cid,'video_note' => $vidnote,'thumb' => $thumb]);
+        if(!$out) $out = $this->get('sendVideoNote',['chat_id' => $cid,'video_note' => $vidnote,'thumb' => $thumb]);
         $json = json_decode($out, true);
         return ['result' => $json['ok'],'data' => $json['description'].$json['result']['message_id']];
     }
     
     public function sendMediaGroup($cid,$media)
     {
-        if(is_callable('curl_init')) {
-            $out = $this->curl('sendMediaGroup',['chat_id' => $cid,'media' => $media]);
-            if(!$out) $out = $this->stream('sendMediaGroup',['chat_id' => $cid,'media' => $media]); 
-        } else {
-            $out = $this->stream('sendMediaGroup',['chat_id' => $cid,'media' => $media]);
-        }
+        $out = $this->curl('sendMediaGroup',['chat_id' => $cid,'media' => $media]);
+        if(!$out) $out = $this->get('sendMediaGroup',['chat_id' => $cid,'media' => $media]); 
         $json = json_decode($out, true);
         return ['result' => $json['ok'],'data' => $json['description'].$json['result']['message_id']];
     }
     
     public function sendLocation($cid,$lat,$long)
     {
-        if(is_callable('curl_init')) {
-            $out = $this->curl('sendLocation',['chat_id' => $cid,'latitude' => $lat,'longitude' => $long]);
-            if(!$out) $out = $this->stream('sendLocation',['chat_id' => $cid,'latitude' => $lat,'longitude' => $long]);
-        } else {
-            $out = $this->stream('sendLocation',['chat_id' => $cid,'latitude' => $lat,'longitude' => $long]);
-        }
+        $out = $this->curl('sendLocation',['chat_id' => $cid,'latitude' => $lat,'longitude' => $long]);
+        if(!$out) $out = $this->get('sendLocation',['chat_id' => $cid,'latitude' => $lat,'longitude' => $long]);
         $json = json_decode($out, true);
         return ['result' => $json['ok'],'data' => $json['description'].$json['result']['message_id']];
     }
     
     public function sendContact($cid,$phone,$fname,$lname)
     {
-        if(is_callable('curl_init')) {
-            $out = $this->curl('sendContact',['chat_id' => $cid,'phone_number' => $phone,'first_name' => $fname,'last_name' => $lname]);
-            if(!$out) $out = $this->stream('sendContact',['chat_id' => $cid,'phone_number' => $phone,'first_name' => $fname,'last_name' => $lname]);
-        } else {
-            $out = $this->stream('sendContact',['chat_id' => $cid,'phone_number' => $phone,'first_name' => $fname,'last_name' => $lname]);
-        }
+        $out = $this->curl('sendContact',['chat_id' => $cid,'phone_number' => $phone,'first_name' => $fname,'last_name' => $lname]);
+        if(!$out) $out = $this->get('sendContact',['chat_id' => $cid,'phone_number' => $phone,'first_name' => $fname,'last_name' => $lname]);
         $json = json_decode($out, true);
         return ['result' => $json['ok'],'data' => $json['description'].$json['result']['message_id']];
     }
