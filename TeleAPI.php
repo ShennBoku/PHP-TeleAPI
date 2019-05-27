@@ -4,29 +4,9 @@
 |  Software: PHP TeleAPI - PHP Telegram Class                               |
 |   Version: 2.1                                                            |
 |   Release: March 29, 2019 (23:17 WIB)                                     |
-|    Update: Mai 12, 2019 (01:33 WIB)                                       |
-| ------------------------------------------------------------------------- |
-|   Founder: Afdhalul Ichsan Yourdan                                        |
-|   Company: ShennGroup                                                     |
-| Copyright © 2019, Afdhalul Ichsan Yourdan. All Rights Reserved.           |
-| ------------------------------------------------------------------------- |
-| * Hak Eksklusif Bagi Pencipta/Penerima                                    |
-| * Hak Untuk Mengumumkan Untuk Tidak Memperbanyak Ciptaannya.              |
-| * Pembatasan-Pembatasan Menurut Peraturan PerUndang-Undangan yang berlaku |
+|    Update: May 12, 2019 (01:33 WIB)                                       |
 |                                                                           |
-| Perlindungan terhadap hak moral pencipta untuk:                           |
-| 1. Tetap mencantumkan atau tidak mencatumkan namanya pada salinan         |
-|    sehubungan dengan pemakaian ciptaannya untuk umum                      |
-| 2. Menggunakan nama aliasnya atau samarannya                              |
-| 3. Mempertahankan haknya dalam hal terjadi distorsi ciptaan, mutilasi     |
-|    ciptaan, modifikasi ciptaan, atau hal yang bersifat merugikan          |
-|    kehormatan diri atau reputasinya                                       |
-|                                                                           |
-| Masa perlindungannya diberikan tanpa batas waktu sesuai dengan            |
-| Pasal 57 ayat (1) UU 28 Tahun 2014.                                       |
-| ------------------------------------------------------------------------- |
-| Dilarang Keras Mengedit/Menghapus Semuanya,                               |
-| Hargai Orang Jika Anda Ingin Dihargai                                     |
+|      Copyright © 2019, Afdhalul Ichsan Yourdan. All Rights Reserved.      |
 | ------------------------------------------------------------------------- |
 | Hubungi Saya:                                                             |
 | - Facebook - Afdhalul Ichsan Yourdan - https://facebook.com/shennboku     |
@@ -45,16 +25,22 @@ class TeleAPI {
     
     private function stream($command,$value)
     {
-        $options = ['http' => ['header' => "Content-type: application/x-www-form-urlencoded\r\n",'method' => 'POST','content' => http_build_query($value)]];
-        $context  = stream_context_create($options);
+        $context = stream_context_create([
+            'http' => [
+                'header' => [
+                    'Content-type: application/x-www-form-urlencoded'
+                ],
+                'method' => 'POST',
+                'content' => http_build_query($value)
+            ]
+        ]);
         return file_get_contents('https://api.telegram.org/bot'.$this->token.'/'.$command, false, $context);
     }
     
     private function curl($command,$value)
     {
-        $url = 'https://api.telegram.org/bot'.$this->token.'/'.$command;
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_URL, 'https://api.telegram.org/bot'.$this->token.'/'.$command);
         curl_setopt($ch, CURLOPT_POST, count($value));
         curl_setopt($ch, CURLOPT_POSTFIELDS,http_build_query($value));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
