@@ -6,6 +6,7 @@
 |   Release: March 29, 2019 (23:17 WIB)                                     |
 |    Update: May 12, 2019 (01:33 WIB)                                       |
 |                                                                           |
+|                     Pasal 57 ayat (1) UU 28 Tahun 2014                    |
 |      Copyright © 2019, Afdhalul Ichsan Yourdan. All Rights Reserved.      |
 | ------------------------------------------------------------------------- |
 | Hubungi Saya:                                                             |
