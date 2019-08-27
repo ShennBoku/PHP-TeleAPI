@@ -5,7 +5,7 @@ require_once 'TeleAPI.php';
 $TeleAPI = new TeleAPI(''); // Isi Bot Token anda!
 
 $webhook = json_decode(file_get_contents("php://input"), true);
-$beautify = $TeleAPI->beautyHook($json_result);
+$beautify = $TeleAPI->beautyHook($webhook);
 $from = $beautify['from'];
 $chat = $beautify['chat'];
 
