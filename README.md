@@ -2,6 +2,8 @@
 
 PHP TeleAPI adalah sebuah class PHP yang dapat memudahkan anda dalam membuat bot telegram
 
+Untuk informasi lengkap tentang API Telegram, silahkan [Klik Tulisan Ini](https://core.telegram.org/bots/api).
+
 ### Instalasi
 
 Untuk dapat menggunakan fungsi ini, pertama-tama upload script TeleAPI dan TeleHook ke web anda dan buat bot telegram melalui [BotFather Telegram](https://t.me/BotFather) lalu copy Token-nya dan paste-kan pada script TeleAPI.
@@ -14,6 +16,10 @@ $TeleAPI = new TeleAPI('BOT TOKEN ANDA');
 Untuk mengatur webhook, anda hanya perlu mengakses url seperti dibawah ini:
 ```
 https://api.telegram.org/bot(TOKEN)/setWebhook?url=https://example.com/TeleHook.php&max_connections=80
+```
+atau anda juga bisa memanggil function setWebhook seperti dibawah ini:
+```
+$TeleAPI->setWebhook('https://example.com/TeleHook.php');
 ```
 * ganti **_https://example.com/_** menjadi alamat domain anda dan **_(TOKEN)_** menjadi Token BOT anda
 
