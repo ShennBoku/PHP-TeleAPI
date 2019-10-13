@@ -74,6 +74,30 @@ class TeleAPI {
         return $beautify;
     }
     
+    public function setWebhook($url,$connection = '80')
+    {
+        if(is_callable('curl_init')) {
+            $out = $this->curl('setWebhook',['url' => $url,'max_connections' => $connection,'allowed_updates' => 'message']);
+            if(!$out) $out = $this->stream('setWebhook',['url' => $url,'max_connections' => $connection,'allowed_updates' => 'message']);
+        } else {
+            $out = $this->stream('setWebhook',['url' => $url,'max_connections' => $connection,'allowed_updates' => 'message']);
+        }
+        $json = json_decode($out, true);
+        return ['result' => $json['ok'],'data' => $json['description']];
+    }
+
+    public function delWebhook()
+    {
+        if(is_callable('curl_init')) {
+            $out = $this->curl('setWebhook','');
+            if(!$out) $out = $this->stream('deleteWebhook','');
+        } else {
+            $out = $this->stream('deleteWebhook','');
+        }
+        $json = json_decode($out, true);
+        return ['result' => $json['ok'],'data' => $json['description']];
+    }
+    
     /*
       Anda dapat melihat semua metode di:
       https://core.telegram.org/bots/api#available-methods
