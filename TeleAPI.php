@@ -2,9 +2,9 @@
 /*
 .---------------------------------------------------------------------------.
 |  Software: PHP TeleAPI - PHP Telegram Class                               |
-|   Version: 2.1                                                            |
+|   Version: 2.4                                                            |
 |   Release: March 29, 2019 (23:17 WIB)                                     |
-|    Update: May 12, 2019 (01:33 WIB)                                       |
+|    Update: October 13, 2019 (11:43 WIB)                                   |
 |                                                                           |
 |                     Pasal 57 ayat (1) UU 28 Tahun 2014                    |
 |      Copyright © 2019, Afdhalul Ichsan Yourdan. All Rights Reserved.      |
