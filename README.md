@@ -26,6 +26,9 @@ $TeleAPI->setWebhook('https://example.com/TeleHook.php');
 ## Authors
 
 * **Afdhalul Ichsan Yourdan** - *Initial work* - [ShennBoku](https://github.com/ShennBoku)
+* **Dhifo Aksa Hermawan** - *Team Support* - [Dhifo](https://www.facebook.com/dhifoaksa)
+* **Safalian Novandika** - *Team Support* - [Safa](https://www.facebook.com/safalian.novandika)
+* **Saiful Rahman** - *Team Support* - [Saiful](https://www.facebook.com/saifulrhmn02)
 
 ## License
 
