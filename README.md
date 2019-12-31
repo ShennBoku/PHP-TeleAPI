@@ -30,6 +30,12 @@ $TeleAPI->setWebhook('https://example.com/TeleHook.php');
 * **Safalian Novandika** - *Team Support* - [Safa](https://www.facebook.com/safalian.novandika)
 * **Saiful Rahman** - *Team Support* - [Saiful](https://www.facebook.com/saifulrhmn02)
 
+## Donations
+
+* **DANA** - *085155439680 An. Yourdan*
+* **GOPAY** - *082211582471 An. Afdhalul Ichsan Yourdan*
+* **OVO** - *082211582471 An. Afdhalul Ichsan Yourdan*
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
