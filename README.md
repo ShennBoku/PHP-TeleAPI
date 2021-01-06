@@ -32,7 +32,7 @@ $TeleAPI->setWebhook('https://example.com/TeleHook.php');
 
 ## Donations
 
-* **DANA** - *085155439680 An. Yourdan*
+* **DANA** - *082211582471 An. Afdhalul Ichsan Yourdan*
 * **GOPAY** - *082211582471 An. Afdhalul Ichsan Yourdan*
 * **OVO** - *082211582471 An. Afdhalul Ichsan Yourdan*
 
