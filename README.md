@@ -7,18 +7,18 @@ Untuk informasi lengkap tentang API Telegram, silahkan [Klik Tulisan Ini](https:
 ### Instalasi
 
 Untuk dapat menggunakan fungsi ini, pertama-tama upload script TeleAPI dan TeleHook ke web anda dan buat bot telegram melalui [BotFather Telegram](https://t.me/BotFather) lalu copy Token-nya dan paste-kan pada script TeleAPI.
-```
+```php
 $TeleAPI = new TeleAPI('BOT TOKEN ANDA');
 ```
 
 ### Pemasangan Webhook
 
 Untuk mengatur webhook, anda hanya perlu mengakses url seperti dibawah ini:
-```
+```yaml
 https://api.telegram.org/bot(TOKEN)/setWebhook?url=https://example.com/TeleHook.php&max_connections=80
 ```
 atau anda juga bisa memanggil function setWebhook seperti dibawah ini:
-```
+```php
 $TeleAPI->setWebhook('https://example.com/TeleHook.php');
 ```
 * ganti **_https://example.com/_** menjadi alamat domain anda dan **_(TOKEN)_** menjadi Token BOT anda
@@ -30,11 +30,6 @@ $TeleAPI->setWebhook('https://example.com/TeleHook.php');
 * **Safalian Novandika** - *Team Support* - [Safa](https://www.facebook.com/safalian.novandika)
 * **Saiful Rahman** - *Team Support* - [Saiful](https://www.facebook.com/saifulrhmn02)
 
-## Donations
-
-* **DANA** - *082211582471 An. Afdhalul Ichsan Yourdan*
-* **GOPAY** - *082211582471 An. Afdhalul Ichsan Yourdan*
-* **OVO** - *082211582471 An. Afdhalul Ichsan Yourdan*
 
 ## License
 
